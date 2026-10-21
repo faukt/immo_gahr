@@ -1,0 +1,1073 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gahr Immobilien — Ihr Immobilientreuhänder im Weinviertel &amp; Marchfeld</title>
+<meta name="description" content="Johann Gahr Immobilien Ges.m.b.H. in Strasshof — Vermittlung von Häusern, Wohnungen, Grundstücken und Gewerbeobjekten im Weinviertel und Marchfeld. Der sichere Weg zu Ihrem Zuhause.">
+<style>
+  /* ============================================================
+     GAHR IMMOBILIEN — Design-Token
+     Palette verwurzelt im Weinviertel: Weingarten-Flaschengrün,
+     Lössboden-Pergament, gealtertes Treuhänder-Messing, Wein-Burgund.
+     Bewusst KEIN Cream+Terracotta, KEIN #0B0B0B.
+     ============================================================ */
+  :root{
+    --gruen:        #1E3A31;   /* Flaschengrün — Marke */
+    --gruen-tief:   #16271F;   /* dunkler Rand */
+    --tinte:        #23261F;   /* grün-getöntes Tintenschwarz — Text */
+    --loss:         #E9E0CB;   /* Löss-Pergament — Grundfläche */
+    --loss-tief:    #DED2B6;   /* Trennflächen */
+    --pergament:    #F6F1E6;   /* Karten / helle Flächen */
+    --messing:      #A6823B;   /* gealtertes Messing — Akzent */
+    --messing-hell: #C6A35A;
+    --burgund:      #6B2A34;   /* Wein — sekundär / „verkauft" */
+    --weiss:        #FBF9F3;
+    --linie:        rgba(35,38,31,.14);
+    --schatten:     0 1px 2px rgba(22,39,31,.08), 0 8px 24px rgba(22,39,31,.10);
+    --schatten-tief:0 12px 48px rgba(22,39,31,.26);
+    --serif: Constantia, "Palatino Linotype", "Book Antiqua", Palatino, Cambria, Georgia, serif;
+    --sans: "Segoe UI", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+    --breite: 1180px;
+  }
+
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto} }
+
+  body{
+    margin:0;
+    font-family:var(--serif);
+    color:var(--tinte);
+    background:var(--loss);
+    line-height:1.65;
+    font-size:17px;
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+  }
+  h1,h2,h3{font-weight:600; line-height:1.12; letter-spacing:-.01em; margin:0}
+  p{margin:0 0 1em}
+  a{color:inherit}
+  img{display:block; max-width:100%}
+  button{font-family:inherit; cursor:pointer}
+
+  .wrap{max-width:var(--breite); margin:0 auto; padding:0 28px}
+  .sans{font-family:var(--sans)}
+
+  /* ---- Objekt-Nummer als echtes Katalog-Zeichen ---- */
+  .objnr{
+    font-family:var(--sans); font-size:12px; font-weight:600;
+    letter-spacing:.06em; color:var(--messing);
+  }
+
+  /* =================  HEADER  ================= */
+  header.top{
+    position:sticky; top:0; z-index:40;
+    background:var(--gruen);
+    color:var(--weiss);
+    border-bottom:1px solid rgba(255,255,255,.08);
+  }
+  .top .wrap{display:flex; align-items:center; gap:28px; height:70px}
+  .brand{display:flex; align-items:center; gap:13px; text-decoration:none; color:var(--weiss)}
+  .brand .seal{
+    width:38px; height:38px; flex:0 0 38px; border-radius:50%;
+    border:1.5px solid var(--messing);
+    display:grid; place-items:center;
+    font-family:var(--serif); font-size:19px; color:var(--messing-hell);
+    background:rgba(198,163,90,.08);
+  }
+  .brand b{font-weight:600; font-size:19px; letter-spacing:.02em; line-height:1}
+  .brand span{font-family:var(--sans); font-size:11px; letter-spacing:.22em; color:var(--messing-hell); text-transform:uppercase}
+  nav.main{margin-left:auto; display:flex; gap:26px; align-items:center}
+  nav.main a{
+    font-family:var(--sans); font-size:14.5px; text-decoration:none;
+    color:rgba(251,249,243,.82); padding:6px 0; position:relative;
+  }
+  nav.main a:hover{color:var(--weiss)}
+  nav.main a::after{
+    content:""; position:absolute; left:0; right:100%; bottom:0; height:1.5px;
+    background:var(--messing); transition:right .25s ease;
+  }
+  nav.main a:hover::after{right:0}
+  .tel-cta{
+    font-family:var(--sans); font-size:14px; font-weight:600;
+    color:var(--gruen); background:var(--messing-hell);
+    text-decoration:none; padding:9px 17px; border-radius:2px;
+    white-space:nowrap; transition:background .2s;
+  }
+  .tel-cta:hover{background:var(--messing); color:var(--weiss)}
+  .burger{display:none; margin-left:auto; background:none; border:0; color:var(--weiss); padding:8px}
+
+  /* =================  HERO  ================= */
+  .hero{position:relative; background:var(--gruen-tief); color:var(--weiss); overflow:hidden}
+  .hero .photo{
+    position:absolute; inset:0; background-size:cover; background-position:center 62%;
+  }
+  .hero .photo::after{
+    content:""; position:absolute; inset:0;
+    background:linear-gradient(104deg, rgba(22,39,31,.93) 0%, rgba(22,39,31,.72) 44%, rgba(22,39,31,.28) 100%);
+  }
+  .hero .wrap{position:relative; padding-top:86px; padding-bottom:40px}
+  .hero .eyebrow{
+    font-family:var(--sans); font-size:13px; letter-spacing:.04em;
+    color:var(--messing-hell); margin:0 0 18px; display:flex; align-items:center; gap:10px;
+  }
+  .hero .eyebrow::before{content:""; width:30px; height:1px; background:var(--messing)}
+  .hero h1{
+    font-size:clamp(34px, 5.4vw, 62px); max-width:15ch; margin:0 0 20px;
+    text-shadow:0 2px 30px rgba(0,0,0,.25);
+  }
+  .hero .lede{
+    font-size:clamp(17px,2vw,21px); max-width:46ch; color:rgba(251,249,243,.9);
+    margin:0 0 34px;
+  }
+
+  /* ---- Hero-Entrance: EINE orchestrierte Einblendung ---- */
+  .hero .eyebrow,.hero h1,.hero .lede,.hero .searchbar{opacity:0; transform:translateY(14px)}
+  .is-ready .hero .eyebrow{animation:rise .7s .05s both}
+  .is-ready .hero h1{animation:rise .8s .16s both}
+  .is-ready .hero .lede{animation:rise .8s .3s both}
+  .is-ready .hero .searchbar{animation:rise .8s .46s both}
+  @keyframes rise{to{opacity:1; transform:none}}
+  @media (prefers-reduced-motion: reduce){
+    .hero .eyebrow,.hero h1,.hero .lede,.hero .searchbar{opacity:1; transform:none; animation:none}
+  }
+
+  /* ---- Schnellsuche im Hero ---- */
+  .searchbar{
+    background:var(--pergament); color:var(--tinte); border-radius:3px;
+    box-shadow:var(--schatten-tief); display:flex; flex-wrap:wrap;
+    padding:8px; gap:8px; max-width:780px;
+    border-top:3px solid var(--messing);
+  }
+  .searchbar .field{flex:1 1 180px; display:flex; flex-direction:column; justify-content:center; padding:6px 12px; min-width:0}
+  .searchbar .field + .field{border-left:1px solid var(--linie)}
+  .searchbar label{font-family:var(--sans); font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:#8a8572; margin-bottom:2px}
+  .searchbar input,.searchbar select{
+    border:0; background:transparent; font-family:var(--sans); font-size:15px; color:var(--tinte);
+    padding:2px 0; width:100%; outline:none;
+  }
+  .searchbar .go{
+    flex:0 0 auto; background:var(--gruen); color:var(--weiss); border:0;
+    font-family:var(--sans); font-weight:600; font-size:15px; padding:0 26px; border-radius:2px;
+    transition:background .2s;
+  }
+  .searchbar .go:hover{background:var(--messing); color:var(--weiss)}
+
+  .hero .trust{
+    display:flex; flex-wrap:wrap; gap:26px 40px; margin-top:34px;
+    font-family:var(--sans); font-size:13.5px; color:rgba(251,249,243,.78);
+  }
+  .hero .trust b{display:block; font-family:var(--serif); font-size:26px; color:var(--weiss); font-weight:600; line-height:1}
+  .hero .trust div{border-left:1px solid rgba(198,163,90,.4); padding-left:16px}
+
+  /* =================  SEKTIONEN  ================= */
+  section{padding:84px 0}
+  .section-head{max-width:60ch; margin-bottom:38px}
+  .section-head .kicker{
+    font-family:var(--sans); font-size:13px; letter-spacing:.03em; color:var(--messing);
+    display:flex; align-items:center; gap:10px; margin-bottom:14px;
+  }
+  .section-head .kicker::before{content:""; width:26px; height:1px; background:var(--messing)}
+  .section-head h2{font-size:clamp(27px,3.6vw,40px); margin-bottom:12px}
+  .section-head p{color:#5e5a4c; font-size:18px}
+
+  /* ---- Objekte ---- */
+  #objekte{background:var(--loss)}
+  .suche-layout{display:grid; grid-template-columns:260px 1fr; gap:38px; align-items:start}
+  .filter{
+    position:sticky; top:92px; background:var(--pergament); border:1px solid var(--linie);
+    border-radius:3px; padding:22px; box-shadow:var(--schatten);
+  }
+  .filter h3{font-family:var(--sans); font-size:13px; letter-spacing:.1em; text-transform:uppercase; color:#8a8572; margin-bottom:16px}
+  .filter .grp{margin-bottom:18px}
+  .filter .grp:last-of-type{margin-bottom:0}
+  .filter label.lab{display:block; font-family:var(--sans); font-size:13px; color:#6b6757; margin-bottom:6px}
+  .filter input[type=text],.filter select{
+    width:100%; font-family:var(--sans); font-size:14.5px; color:var(--tinte);
+    padding:9px 11px; border:1px solid var(--linie); border-radius:2px; background:var(--weiss); outline:none;
+  }
+  .filter input[type=text]:focus,.filter select:focus{border-color:var(--messing)}
+  .chips{display:flex; flex-wrap:wrap; gap:6px}
+  .chip{
+    font-family:var(--sans); font-size:13px; padding:6px 12px; border-radius:2px;
+    border:1px solid var(--linie); background:var(--weiss); color:#5e5a4c; transition:all .15s;
+  }
+  .chip[aria-pressed="true"]{background:var(--gruen); color:var(--weiss); border-color:var(--gruen)}
+  .filter .reset{
+    width:100%; margin-top:4px; background:none; border:1px solid var(--linie); color:#6b6757;
+    font-family:var(--sans); font-size:13px; padding:9px; border-radius:2px; transition:all .15s;
+  }
+  .filter .reset:hover{border-color:var(--burgund); color:var(--burgund)}
+
+  .results-bar{display:flex; align-items:baseline; justify-content:space-between; margin-bottom:20px; flex-wrap:wrap; gap:10px}
+  .results-bar .count{font-family:var(--sans); font-size:14px; color:#6b6757}
+  .results-bar .count b{color:var(--tinte); font-size:17px}
+  .results-bar .sort{display:flex; align-items:center; gap:8px; font-family:var(--sans); font-size:13px; color:#6b6757}
+  .results-bar .sort select{font-family:var(--sans); font-size:14px; padding:7px 10px; border:1px solid var(--linie); border-radius:2px; background:var(--weiss); color:var(--tinte); outline:none}
+
+  .grid{display:grid; grid-template-columns:repeat(auto-fill, minmax(300px,1fr)); gap:26px}
+
+  .card{
+    background:var(--pergament); border:1px solid var(--linie); border-radius:3px; overflow:hidden;
+    box-shadow:var(--schatten); cursor:pointer; text-align:left; padding:0; width:100%;
+    display:flex; flex-direction:column; transition:transform .22s ease, box-shadow .22s ease;
+  }
+  .card:hover{transform:translateY(-4px); box-shadow:var(--schatten-tief)}
+  .card:focus-visible{outline:2.5px solid var(--messing); outline-offset:2px}
+  .card .ph{position:relative; aspect-ratio:3/2; background:var(--loss-tief) center/cover}
+  .card .status{
+    position:absolute; top:12px; left:12px; font-family:var(--sans); font-size:11.5px; font-weight:600;
+    letter-spacing:.04em; padding:5px 11px; border-radius:2px; color:var(--weiss); backdrop-filter:blur(2px);
+  }
+  .status.neu{background:var(--messing)}
+  .status.verfuegbar{background:rgba(30,58,49,.92)}
+  .status.verkauft{background:rgba(107,42,52,.92)}
+  .card .muster{
+    position:absolute; top:12px; right:12px; font-family:var(--sans); font-size:10.5px; font-weight:600;
+    letter-spacing:.05em; padding:4px 9px; border-radius:2px;
+    background:rgba(251,249,243,.92); color:#8a8572; border:1px solid rgba(166,130,59,.4);
+  }
+  .card .body{padding:17px 18px 20px; display:flex; flex-direction:column; flex:1}
+  .card .meta-top{display:flex; justify-content:space-between; align-items:center; margin-bottom:8px}
+  .card .ort{font-family:var(--sans); font-size:13px; color:#6b6757; display:flex; align-items:center; gap:5px}
+  .card h3{font-size:20px; margin-bottom:12px; letter-spacing:-.01em}
+  .card .preis{font-size:23px; color:var(--gruen); font-weight:600; margin-top:auto}
+  .card .preis small{font-family:var(--sans); font-size:13px; color:#8a8572; font-weight:400}
+  .card .facts{
+    display:flex; gap:14px; margin-top:12px; padding-top:13px; border-top:1px solid var(--linie);
+    font-family:var(--sans); font-size:13px; color:#5e5a4c; flex-wrap:wrap;
+  }
+  .card .facts span{display:flex; align-items:center; gap:5px}
+  .card .facts svg{width:15px; height:15px; stroke:var(--messing); fill:none; stroke-width:1.6}
+
+  .empty{
+    grid-column:1/-1; text-align:center; padding:60px 20px; color:#6b6757;
+    border:1px dashed var(--linie); border-radius:3px; background:var(--pergament);
+  }
+  .empty h3{font-size:22px; margin-bottom:8px; color:var(--tinte)}
+  .empty button{margin-top:16px; background:var(--gruen); color:var(--weiss); border:0; font-family:var(--sans); font-size:14px; padding:10px 20px; border-radius:2px}
+
+  /* ---- Objekt-Detail Modal ---- */
+  .overlay{
+    position:fixed; inset:0; z-index:60; background:rgba(22,39,31,.6); backdrop-filter:blur(3px);
+    display:none; padding:34px 20px; overflow-y:auto;
+  }
+  .overlay.open{display:block}
+  .modal{
+    max-width:960px; margin:0 auto; background:var(--pergament); border-radius:4px;
+    box-shadow:var(--schatten-tief); overflow:hidden; animation:pop .32s ease both;
+  }
+  @keyframes pop{from{opacity:0; transform:translateY(16px) scale(.985)} to{opacity:1; transform:none}}
+  @media (prefers-reduced-motion: reduce){ .modal{animation:none} }
+  .modal .gallery{position:relative; background:var(--tinte)}
+  .modal .gallery .main{aspect-ratio:16/9; background-size:cover; background-position:center}
+  .modal .gallery .close{
+    position:absolute; top:14px; right:14px; width:40px; height:40px; border-radius:50%;
+    background:rgba(251,249,243,.92); border:0; font-size:22px; line-height:1; color:var(--tinte);
+    display:grid; place-items:center; box-shadow:var(--schatten);
+  }
+  .modal .gallery .close:hover{background:var(--weiss)}
+  .modal .thumbs{display:flex; gap:8px; padding:10px; background:var(--tinte)}
+  .modal .thumbs button{
+    flex:1; aspect-ratio:3/2; border:2px solid transparent; border-radius:2px; background-size:cover;
+    background-position:center; padding:0; opacity:.6; transition:opacity .15s, border-color .15s;
+  }
+  .modal .thumbs button[aria-current="true"]{opacity:1; border-color:var(--messing)}
+  .modal .thumbs button:hover{opacity:1}
+  .modal .detail{padding:30px 34px 36px}
+  .modal .detail .dhead{display:flex; justify-content:space-between; align-items:flex-start; gap:20px; flex-wrap:wrap; margin-bottom:6px}
+  .modal .detail .ort{font-family:var(--sans); font-size:14px; color:#6b6757; margin-bottom:8px; display:flex; gap:12px; align-items:center}
+  .modal .detail h2{font-size:30px; margin-bottom:14px}
+  .modal .detail .dpreis{font-size:30px; color:var(--gruen); font-weight:600; white-space:nowrap}
+  .modal .detail .dpreis small{font-family:var(--sans); font-size:14px; color:#8a8572; font-weight:400; display:block; text-align:right}
+  .kpis{display:grid; grid-template-columns:repeat(auto-fit,minmax(120px,1fr)); gap:1px; background:var(--linie); border:1px solid var(--linie); border-radius:3px; overflow:hidden; margin:22px 0}
+  .kpis div{background:var(--weiss); padding:16px 18px}
+  .kpis .k{font-family:var(--sans); font-size:12px; letter-spacing:.05em; color:#8a8572; margin-bottom:4px}
+  .kpis .v{font-size:21px; color:var(--tinte); font-weight:600}
+  .modal .detail p.desc{color:#4e4a3e; font-size:17px; margin-bottom:22px}
+  .merkmale{display:flex; flex-wrap:wrap; gap:9px; margin-bottom:28px}
+  .merkmale span{font-family:var(--sans); font-size:13.5px; color:var(--gruen); background:rgba(30,58,49,.07); padding:7px 13px; border-radius:2px; display:flex; align-items:center; gap:7px}
+  .merkmale span::before{content:""; width:5px; height:5px; border-radius:50%; background:var(--messing)}
+  .modal .detail .dcta{display:flex; gap:12px; flex-wrap:wrap; border-top:1px solid var(--linie); padding-top:24px}
+  .btn-primary{background:var(--gruen); color:var(--weiss); border:0; font-family:var(--sans); font-weight:600; font-size:15px; padding:13px 26px; border-radius:2px; text-decoration:none; display:inline-flex; align-items:center; gap:9px; transition:background .2s}
+  .btn-primary:hover{background:var(--messing)}
+  .btn-ghost{background:none; border:1px solid var(--linie); color:var(--tinte); font-family:var(--sans); font-size:15px; padding:13px 24px; border-radius:2px; text-decoration:none; display:inline-flex; align-items:center; gap:9px; transition:border-color .2s}
+  .btn-ghost:hover{border-color:var(--messing); color:var(--messing)}
+  .muster-note{font-family:var(--sans); font-size:12.5px; color:#8a8572; margin-top:16px; font-style:italic}
+
+  /* ---- Leistungen ---- */
+  #leistungen{background:var(--gruen); color:var(--weiss)}
+  #leistungen .section-head h2{color:var(--weiss)}
+  #leistungen .section-head p{color:rgba(251,249,243,.74)}
+  #leistungen .section-head .kicker{color:var(--messing-hell)}
+  .leist-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:1px; background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.1)}
+  .leist{background:var(--gruen); padding:28px 26px; transition:background .2s}
+  .leist:hover{background:var(--gruen-tief)}
+  .leist .ic{width:34px; height:34px; stroke:var(--messing-hell); fill:none; stroke-width:1.5; margin-bottom:16px}
+  .leist h3{font-size:19px; margin-bottom:9px}
+  .leist p{font-family:var(--sans); font-size:14px; color:rgba(251,249,243,.72); line-height:1.6; margin:0}
+  .leist.cta{background:var(--messing); display:flex; flex-direction:column; justify-content:center}
+  .leist.cta:hover{background:var(--messing-hell)}
+  .leist.cta h3{color:var(--gruen-tief); font-size:21px; margin-bottom:6px}
+  .leist.cta p{color:rgba(22,39,31,.8); margin-bottom:16px}
+  .leist.cta a{align-self:flex-start; font-family:var(--sans); font-weight:600; font-size:14px; color:var(--weiss); background:var(--gruen); text-decoration:none; padding:11px 20px; border-radius:2px; transition:background .2s}
+  .leist.cta a:hover{background:var(--gruen-tief)}
+
+  /* ---- Über uns ---- */
+  #ueber{background:var(--loss)}
+  .ueber-layout{display:grid; grid-template-columns:1.1fr .9fr; gap:56px; align-items:center}
+  .ueber-text p{color:#4e4a3e; font-size:17.5px}
+  .ueber-text .lead{font-size:21px; color:var(--tinte); margin-bottom:20px; line-height:1.5}
+  .person{background:var(--pergament); border:1px solid var(--linie); border-radius:3px; padding:28px; box-shadow:var(--schatten); border-top:3px solid var(--messing)}
+  .person .seal-big{width:54px; height:54px; border-radius:50%; border:1.5px solid var(--messing); display:grid; place-items:center; font-family:var(--serif); font-size:26px; color:var(--messing); margin-bottom:16px; background:rgba(166,130,59,.06)}
+  .person .name{font-size:22px; margin-bottom:4px}
+  .person .role{font-family:var(--sans); font-size:14px; color:var(--messing); margin-bottom:18px}
+  .person ul{list-style:none; padding:0; margin:0; font-family:var(--sans); font-size:14px; color:#5e5a4c}
+  .person li{padding:7px 0; border-top:1px solid var(--linie); display:flex; justify-content:space-between; gap:16px}
+  .person li:first-child{border-top:0}
+  .person li span:last-child{color:var(--tinte); text-align:right}
+
+  /* ---- Kontakt ---- */
+  #kontakt{background:var(--gruen-tief); color:var(--weiss)}
+  #kontakt .section-head h2{color:var(--weiss)}
+  #kontakt .section-head p{color:rgba(251,249,243,.74)}
+  #kontakt .section-head .kicker{color:var(--messing-hell)}
+  .kontakt-layout{display:grid; grid-template-columns:1fr 1fr; gap:48px; align-items:start}
+  .kontakt-info .kline{display:flex; gap:15px; padding:17px 0; border-bottom:1px solid rgba(255,255,255,.1); align-items:flex-start}
+  .kontakt-info .kline:first-child{border-top:1px solid rgba(255,255,255,.1)}
+  .kontakt-info svg{width:20px; height:20px; stroke:var(--messing-hell); fill:none; stroke-width:1.6; flex:0 0 20px; margin-top:3px}
+  .kontakt-info .kl{font-family:var(--sans); font-size:12px; letter-spacing:.06em; text-transform:uppercase; color:var(--messing-hell); margin-bottom:3px}
+  .kontakt-info .kv{font-size:17px; color:var(--weiss)}
+  .kontakt-info .kv a{color:var(--weiss); text-decoration:none}
+  .kontakt-info .kv a:hover{color:var(--messing-hell)}
+  .form{background:var(--pergament); color:var(--tinte); border-radius:4px; padding:30px; box-shadow:var(--schatten-tief); border-top:3px solid var(--messing)}
+  .form h3{font-size:22px; margin-bottom:6px}
+  .form > p{font-family:var(--sans); font-size:14px; color:#6b6757; margin-bottom:20px}
+  .form .row{display:grid; grid-template-columns:1fr 1fr; gap:14px}
+  .form .f{margin-bottom:15px}
+  .form label{display:block; font-family:var(--sans); font-size:13px; color:#6b6757; margin-bottom:6px}
+  .form input,.form textarea,.form select{
+    width:100%; font-family:var(--sans); font-size:15px; color:var(--tinte); background:var(--weiss);
+    border:1px solid var(--linie); border-radius:2px; padding:11px 13px; outline:none; transition:border-color .15s;
+  }
+  .form input:focus,.form textarea:focus,.form select:focus{border-color:var(--messing)}
+  .form textarea{resize:vertical; min-height:110px; font-family:var(--sans)}
+  .form .submit{width:100%; background:var(--gruen); color:var(--weiss); border:0; font-family:var(--sans); font-weight:600; font-size:16px; padding:15px; border-radius:2px; margin-top:4px; transition:background .2s}
+  .form .submit:hover{background:var(--messing)}
+  .form .hint{font-family:var(--sans); font-size:12px; color:#8a8572; margin:12px 0 0; text-align:center}
+
+  /* =================  FOOTER / IMPRESSUM  ================= */
+  footer{background:var(--tinte); color:rgba(251,249,243,.7); font-family:var(--sans); font-size:13.5px}
+  footer .wrap{padding-top:52px; padding-bottom:40px}
+  .foot-top{display:grid; grid-template-columns:1.4fr 1fr 1fr; gap:40px; padding-bottom:36px; border-bottom:1px solid rgba(255,255,255,.1)}
+  .foot-brand .brand{margin-bottom:14px}
+  .foot-brand p{max-width:34ch; line-height:1.6; margin:0}
+  footer h4{font-family:var(--sans); font-size:12px; letter-spacing:.1em; text-transform:uppercase; color:var(--messing-hell); margin:0 0 14px}
+  footer ul{list-style:none; padding:0; margin:0}
+  footer li{padding:5px 0}
+  footer a{color:rgba(251,249,243,.7); text-decoration:none}
+  footer a:hover{color:var(--weiss)}
+  .impressum{padding-top:26px; display:flex; flex-wrap:wrap; gap:8px 26px; font-size:12.5px; color:rgba(251,249,243,.5); line-height:1.7}
+  .impressum b{color:rgba(251,249,243,.72); font-weight:600}
+  .legal-final{margin-top:18px; font-size:12px; color:rgba(251,249,243,.42); max-width:95ch}
+
+  /* =================  RESPONSIVE  ================= */
+  @media (max-width: 920px){
+    .suche-layout{grid-template-columns:1fr}
+    .filter{position:static}
+    .ueber-layout,.kontakt-layout{grid-template-columns:1fr; gap:34px}
+    .foot-top{grid-template-columns:1fr 1fr}
+  }
+  @media (max-width: 680px){
+    body{font-size:16px}
+    .wrap{padding:0 20px}
+    nav.main{display:none}
+    nav.main.show{
+      display:flex; position:absolute; top:70px; left:0; right:0; background:var(--gruen-tief);
+      flex-direction:column; gap:0; padding:8px 20px 16px; border-bottom:1px solid rgba(255,255,255,.1);
+    }
+    nav.main.show a{padding:13px 0; border-bottom:1px solid rgba(255,255,255,.08); width:100%}
+    .burger{display:block}
+    .tel-cta{display:none}
+    section{padding:58px 0}
+    .searchbar{flex-direction:column}
+    .searchbar .field + .field{border-left:0; border-top:1px solid var(--linie)}
+    .searchbar .go{padding:14px}
+    .form .row{grid-template-columns:1fr}
+    .foot-top{grid-template-columns:1fr}
+    .hero .trust{gap:20px 28px}
+    .modal .detail{padding:24px 22px 28px}
+  }
+</style>
+</head>
+<body>
+
+<!-- =================  HEADER  ================= -->
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="Gahr Immobilien Startseite">
+      <span class="seal" aria-hidden="true">G</span>
+      <span>
+        <b>GAHR IMMOBILIEN</b><br>
+        <span>Immobilientreuhänder</span>
+      </span>
+    </a>
+    <button class="burger" aria-label="Menü" aria-expanded="false" id="burger">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><line x1="3" y1="7" x2="21" y2="7"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="17" x2="21" y2="17"/></svg>
+    </button>
+    <nav class="main" id="nav">
+      <a href="#objekte">Objekte</a>
+      <a href="#leistungen">Leistungen</a>
+      <a href="#ueber">Über uns</a>
+      <a href="#kontakt">Kontakt</a>
+      <a class="tel-cta" href="tel:+43228720050">☎ 02287 / 200 50</a>
+    </nav>
+  </div>
+</header>
+
+<!-- =================  HERO  ================= -->
+<section class="hero" id="top" style="padding:0">
+  <div class="photo" id="heroPhoto"></div>
+  <div class="wrap">
+    <p class="eyebrow">Strasshof · Marchfeld · Weinviertel</p>
+    <h1>Der sichere Weg zu Ihrem Zuhause.</h1>
+    <p class="lede">Seit Jahren vermitteln wir Häuser, Wohnungen, Grundstücke und Gewerbeobjekte in Niederösterreich — persönlich, konzessioniert und mit dem Blick fürs Wesentliche.</p>
+
+    <form class="searchbar" id="heroSearch" role="search" aria-label="Objektsuche">
+      <div class="field">
+        <label for="hs-ort">Ort oder Stichwort</label>
+        <input type="text" id="hs-ort" placeholder="z. B. Strasshof, Haus …">
+      </div>
+      <div class="field">
+        <label for="hs-typ">Objektart</label>
+        <select id="hs-typ">
+          <option value="">Alle Objektarten</option>
+          <option value="haus">Haus</option>
+          <option value="wohnung">Wohnung</option>
+          <option value="grundstueck">Grundstück</option>
+          <option value="gewerbe">Gewerbe</option>
+          <option value="ausland">Ausland</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="hs-angebot">Angebot</label>
+        <select id="hs-angebot">
+          <option value="">Kauf &amp; Miete</option>
+          <option value="kauf">Kauf</option>
+          <option value="miete">Miete</option>
+        </select>
+      </div>
+      <button class="go" type="submit">Objekte finden</button>
+    </form>
+
+    <div class="trust">
+      <div><b id="trustCount">—</b> Objekte im Angebot</div>
+      <div><b>Konzess.</b> Immobilienmakler</div>
+      <div><b>WKNÖ</b> Vermögenstreuhänder</div>
+    </div>
+  </div>
+</section>
+
+<!-- =================  OBJEKTE  ================= -->
+<section id="objekte">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="kicker">Aktuelles Angebot</p>
+      <h2>Objekte durchsuchen</h2>
+      <p>Filtern Sie nach Ort, Objektart, Preis und Fläche — jedes Objekt mit eigener Objektnummer, wie in unserer Datenbank.</p>
+    </div>
+
+    <div class="suche-layout">
+      <!-- Filter -->
+      <aside class="filter" aria-label="Filter">
+        <h3>Suche verfeinern</h3>
+        <div class="grp">
+          <label class="lab" for="f-text">Ort / Stichwort</label>
+          <input type="text" id="f-text" placeholder="Ort, Titel, Objekt-Nr. …">
+        </div>
+        <div class="grp">
+          <label class="lab">Objektart</label>
+          <div class="chips" id="f-typ" role="group" aria-label="Objektart">
+            <button class="chip" data-typ="" aria-pressed="true">Alle</button>
+            <button class="chip" data-typ="haus" aria-pressed="false">Haus</button>
+            <button class="chip" data-typ="wohnung" aria-pressed="false">Wohnung</button>
+            <button class="chip" data-typ="grundstueck" aria-pressed="false">Grundstück</button>
+            <button class="chip" data-typ="gewerbe" aria-pressed="false">Gewerbe</button>
+            <button class="chip" data-typ="ausland" aria-pressed="false">Ausland</button>
+          </div>
+        </div>
+        <div class="grp">
+          <label class="lab">Angebot</label>
+          <div class="chips" id="f-angebot" role="group" aria-label="Angebot">
+            <button class="chip" data-angebot="" aria-pressed="true">Alle</button>
+            <button class="chip" data-angebot="kauf" aria-pressed="false">Kauf</button>
+            <button class="chip" data-angebot="miete" aria-pressed="false">Miete</button>
+          </div>
+        </div>
+        <div class="grp">
+          <label class="lab" for="f-preis">Preis bis</label>
+          <select id="f-preis">
+            <option value="">beliebig</option>
+            <option value="50000">50.000 €</option>
+            <option value="150000">150.000 €</option>
+            <option value="300000">300.000 €</option>
+            <option value="500000">500.000 €</option>
+            <option value="1000000">1 Mio. €</option>
+            <option value="99000000">über 1 Mio. €</option>
+          </select>
+        </div>
+        <div class="grp">
+          <label class="lab" for="f-flaeche">Fläche ab</label>
+          <select id="f-flaeche">
+            <option value="">beliebig</option>
+            <option value="50">50 m²</option>
+            <option value="100">100 m²</option>
+            <option value="150">150 m²</option>
+            <option value="250">250 m²</option>
+            <option value="500">500 m²</option>
+          </select>
+        </div>
+        <div class="grp">
+          <label class="lab" for="f-status">Status</label>
+          <select id="f-status">
+            <option value="">alle</option>
+            <option value="neu">Neu im Angebot</option>
+            <option value="verfuegbar">Verfügbar</option>
+            <option value="verkauft">Verkauft</option>
+          </select>
+        </div>
+        <button class="reset" id="f-reset" type="button">Filter zurücksetzen</button>
+      </aside>
+
+      <!-- Ergebnisse -->
+      <div>
+        <div class="results-bar">
+          <div class="count"><b id="resCount">0</b> Objekte gefunden</div>
+          <div class="sort">
+            <label for="f-sort">Sortieren:</label>
+            <select id="f-sort">
+              <option value="neueste">Neueste zuerst</option>
+              <option value="preis-auf">Preis aufsteigend</option>
+              <option value="preis-ab">Preis absteigend</option>
+              <option value="flaeche-ab">Größte Fläche</option>
+            </select>
+          </div>
+        </div>
+        <div class="grid" id="grid"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =================  LEISTUNGEN  ================= -->
+<section id="leistungen">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="kicker">Warum Gahr</p>
+      <h2>Unsere Leistungen für Sie</h2>
+      <p>Von der ersten Beratung bis zur Vertragsunterschrift begleiten wir Sie Schritt für Schritt.</p>
+    </div>
+    <div class="leist-grid" id="leistGrid"></div>
+  </div>
+</section>
+
+<!-- =================  ÜBER UNS  ================= -->
+<section id="ueber">
+  <div class="wrap">
+    <div class="ueber-layout">
+      <div class="ueber-text">
+        <p class="kicker section-head" style="margin-bottom:14px; font-family:var(--sans); font-size:13px; letter-spacing:.03em; color:var(--messing); display:flex; align-items:center; gap:10px"><span style="width:26px;height:1px;background:var(--messing);display:inline-block"></span>Über uns</p>
+        <p class="lead">Immobilien sind Vertrauenssache. Sie stellen hohe Vermögenswerte dar und zählen zu den wichtigsten Entscheidungen im Leben.</p>
+        <p>Als konzessionierter Immobilienmakler mit langjähriger Erfahrung im Weinviertel und Marchfeld nehmen wir uns Zeit für Sie. Wir vermitteln nicht „auf gut Glück", sondern prüfen zuerst, wo Fragen und Probleme bestehen — und helfen Ihnen, sie zu lösen.</p>
+        <p>Als Mitglied der Wirtschaftskammer Niederösterreich, Fachgruppe der Immobilien- und Vermögenstreuhänder, stehen wir für Seriosität und Bestand in allen Bereichen.</p>
+      </div>
+      <div class="person">
+        <div class="seal-big" aria-hidden="true">G</div>
+        <div class="name">J.F.K. Gahr</div>
+        <div class="role">Geschäftsführer · Immobilientreuhänder</div>
+        <ul>
+          <li><span>Funktion</span><span>Handels- &amp; gewerberechtl. GF</span></li>
+          <li><span>Qualifikation</span><span>Immobilientreuhänder</span></li>
+          <li><span>Zusatz</span><span>Spreng-/Werkmeister Baugewerbe</span></li>
+          <li><span>Mitglied</span><span>WKNÖ Vermögenstreuhänder</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =================  KONTAKT  ================= -->
+<section id="kontakt">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="kicker">Kontakt</p>
+      <h2>Sprechen wir über Ihre Immobilie</h2>
+      <p>Ob Kauf, Verkauf oder eine unverbindliche Wertermittlung — wir freuen uns auf Ihre Nachricht.</p>
+    </div>
+    <div class="kontakt-layout">
+      <div class="kontakt-info">
+        <div class="kline">
+          <svg viewBox="0 0 24 24"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V21h14V9.5"/><path d="M9.5 21v-6h5v6"/></svg>
+          <div><div class="kl">Adresse</div><div class="kv">Johann Gahr Immobilien Ges.m.b.H.<br>Hauptstraße 10, A-2231 Strasshof</div></div>
+        </div>
+        <div class="kline">
+          <svg viewBox="0 0 24 24"><path d="M4 5c0 8 7 15 15 15l-1-4-4-1-2 2a13 13 0 0 1-5-5l2-2-1-4Z"/></svg>
+          <div><div class="kl">Telefon</div><div class="kv"><a href="tel:+43228720050">+43 (0) 2287 / 200 50</a></div></div>
+        </div>
+        <div class="kline">
+          <svg viewBox="0 0 24 24"><path d="M4 5c0 8 7 15 15 15l-1-4-4-1-2 2a13 13 0 0 1-5-5l2-2-1-4Z"/></svg>
+          <div><div class="kl">Mobil</div><div class="kv"><a href="tel:+4367632677 33">+43 (0) 676 / 326 77 33</a></div></div>
+        </div>
+        <div class="kline">
+          <svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="1.5"/><path d="m3 6 9 7 9-7"/></svg>
+          <div><div class="kl">E-Mail</div><div class="kv"><a href="mailto:office@gahr-immobilien.at">office@gahr-immobilien.at</a></div></div>
+        </div>
+        <div class="kline">
+          <svg viewBox="0 0 24 24"><path d="M6 4h12v3H6z"/><path d="M6 17h12v3H6z"/><path d="M8 7v10M16 7v10"/></svg>
+          <div><div class="kl">Fax</div><div class="kv">+43 (0) 2287 / 211 55</div></div>
+        </div>
+      </div>
+
+      <form class="form" id="kontaktForm">
+        <h3>Anfrage senden</h3>
+        <p>Ihre Nachricht öffnet sich in Ihrem E-Mail-Programm — fertig vorformuliert.</p>
+        <div class="row">
+          <div class="f"><label for="k-name">Name</label><input type="text" id="k-name" required></div>
+          <div class="f"><label for="k-tel">Telefon</label><input type="tel" id="k-tel"></div>
+        </div>
+        <div class="f"><label for="k-mail">E-Mail</label><input type="email" id="k-mail" required></div>
+        <div class="f"><label for="k-betreff">Betreff</label>
+          <select id="k-betreff">
+            <option>Allgemeine Anfrage</option>
+            <option>Ich möchte verkaufen</option>
+            <option>Ich suche ein Objekt</option>
+            <option>Unverbindliche Wertermittlung</option>
+            <option>Anfrage zu einem Objekt</option>
+          </select>
+        </div>
+        <div class="f"><label for="k-text">Nachricht</label><textarea id="k-text" placeholder="Wie können wir Ihnen helfen?"></textarea></div>
+        <button class="submit" type="submit">Nachricht vorbereiten</button>
+        <p class="hint">Es werden keine Daten an einen Server gesendet.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- =================  FOOTER / IMPRESSUM  ================= -->
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <a class="brand" href="#top">
+          <span class="seal" aria-hidden="true">G</span>
+          <span><b>GAHR IMMOBILIEN</b><br><span>Immobilientreuhänder</span></span>
+        </a>
+        <p>Ihr persönlicher Immobilienberater im Weinviertel und Marchfeld — der sichere Weg zu Ihrem Zuhause.</p>
+      </div>
+      <div>
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="#objekte">Objekte</a></li>
+          <li><a href="#leistungen">Leistungen</a></li>
+          <li><a href="#ueber">Über uns</a></li>
+          <li><a href="#kontakt">Kontakt</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Kontakt</h4>
+        <ul>
+          <li>Hauptstraße 10, 2231 Strasshof</li>
+          <li><a href="tel:+43228720050">+43 2287 / 200 50</a></li>
+          <li><a href="mailto:office@gahr-immobilien.at">office@gahr-immobilien.at</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="impressum">
+      <span><b>Impressum:</b> Johann Gahr Immobilien Ges.m.b.H.</span>
+      <span><b>FN</b> 72061 y · LGR Korneuburg</span>
+      <span><b>UID</b> ATU17841101</span>
+      <span><b>Gerichtsstand</b> Gänserndorf</span>
+      <span><b>Mitglied</b> WKNÖ — Fachgruppe Immobilien- &amp; Vermögenstreuhänder</span>
+    </div>
+    <p class="legal-final">Alle angegebenen Preise verstehen sich in Euro inkl. der gesetzlichen MwSt. Irrtümer und Preisänderungen vorbehalten. Für den Inhalt dieser Webseite ist die Johann Gahr Immobilien Ges.m.b.H. verantwortlich. Mit <b style="color:var(--messing-hell)">„Musterobjekt"</b> gekennzeichnete Einträge sind Beispieldaten zu Demonstrationszwecken.</p>
+  </div>
+</footer>
+
+<!-- =================  OBJEKT-DETAIL OVERLAY  ================= -->
+<div class="overlay" id="overlay" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+  <div class="modal" id="modal"></div>
+</div>
+
+<script>
+/* ============================================================
+   Bilddaten — zur Build-Zeit injiziert (Base64, offline).
+   Fällt auf einen SVG-Platzhalter zurück, falls ein Bild fehlt.
+   ============================================================ */
+const IMG = /*__IMAGES__*/ {};
+const PLACEHOLDER = "data:image/svg+xml;utf8," + encodeURIComponent(
+  '<svg xmlns="http://www.w3.org/2000/svg" width="600" height="400"><rect width="600" height="400" fill="#DED2B6"/><text x="50%" y="50%" font-family="Georgia" font-size="22" fill="#A6823B" text-anchor="middle" dy=".35em">Gahr Immobilien</text></svg>'
+);
+const img = (key) => IMG[key] || PLACEHOLDER;
+
+/* ============================================================
+   Objektdaten — Mischung aus echten Alt-Objekten (von der
+   bestehenden Seite) und klar gekennzeichneten Musterobjekten.
+   ============================================================ */
+const PROPERTIES = [
+  { id:"7641", typ:"haus", angebot:"kauf", titel:"Einfamilienhaus mit Garten",
+    ort:"Mistelbach", preis:149000, flaeche:140, zimmer:5, status:"verfuegbar", musterobjekt:false,
+    bilder:["house_classic","interior_living_1","interior_kitchen"],
+    beschreibung:"Gepflegtes Einfamilienhaus in ruhiger Lage von Mistelbach. Großzügige Raumaufteilung auf 140 m², sonniger Garten und solide Bausubstanz — bereit zum Einziehen.",
+    merkmale:["Garten","5 Zimmer","Ruhige Lage","Keller","Garage"] },
+
+  { id:"7638", typ:"haus", angebot:"kauf", titel:"Kompaktes Wohnhaus — ideal zum Start",
+    ort:"Hausbrunn", preis:29000, flaeche:50, zimmer:2, status:"verfuegbar", musterobjekt:false,
+    bilder:["house_white","apartment_1"],
+    beschreibung:"Preiswertes kleines Wohnhaus im nördlichen Weinviertel. Mit 50 m² perfekt als Einstieg, Wochenenddomizil oder Anlageobjekt. Viel Potenzial zum fairen Preis.",
+    merkmale:["Günstiger Einstieg","Anlageobjekt","Ortskern","Ausbaufähig"] },
+
+  { id:"7438", typ:"haus", angebot:"kauf", titel:"Repräsentative Villa",
+    ort:"Klosterneuburg", preis:1950000, flaeche:340, zimmer:7, status:"neu", musterobjekt:false,
+    bilder:["house_lux_1","interior_living_2","house_lux_2"],
+    beschreibung:"Exklusive Villa in bester Lage von Klosterneuburg. 340 m² Wohnfläche, hochwertige Ausstattung, parkähnlicher Grund und Blick ins Grüne. Ein Objekt für höchste Ansprüche.",
+    merkmale:["Premium-Lage","340 m² Wohnfläche","Parkgrund","Hochwertige Ausstattung","7 Zimmer"] },
+
+  { id:"866", typ:"gewerbe", angebot:"miete", titel:"Günstige Büroflächen zu vermieten",
+    ort:"Strasshof", preis:7, preisEinheit:"m²/Monat", flaeche:220, zimmer:null, status:"verfuegbar", musterobjekt:false,
+    bilder:["office_bldg","office_interior"],
+    beschreibung:"Helle, flexibel teilbare Büroflächen direkt in Strasshof. Gute Erreichbarkeit, Parkplätze vor dem Haus. Flächen ab sofort und zu attraktiven Konditionen verfügbar.",
+    merkmale:["Flexibel teilbar","Parkplätze","Gute Anbindung","Sofort verfügbar"] },
+
+  { id:"5102", typ:"ausland", angebot:"kauf", titel:"Wald- & Ackerland im Ausland",
+    ort:"Rumänien · Slowakei · Ukraine", preis:0, preisText:"auf Anfrage", flaeche:null, zimmer:null, status:"verfuegbar", musterobjekt:false,
+    bilder:["field_1","vineyard_1"],
+    beschreibung:"Ihr Partner für Wald- und Ackerland in Rumänien, der Slowakei und der Ukraine. Wir vermitteln land- und forstwirtschaftliche Flächen aller Größenordnungen — Konditionen auf Anfrage.",
+    merkmale:["Land- & Forstwirtschaft","Rumänien","Slowakei","Ukraine","Alle Größen"] },
+
+  /* --- Musterobjekte (Beispieldaten, klar gekennzeichnet) --- */
+  { id:"8012", typ:"haus", angebot:"kauf", titel:"Neubau-Einfamilienhaus, schlüsselfertig",
+    ort:"Strasshof", preis:420000, flaeche:145, zimmer:5, status:"neu", musterobjekt:true,
+    bilder:["house_modern_1","interior_kitchen","interior_living_1"],
+    beschreibung:"Modernes, schlüsselfertiges Niedrigenergiehaus in aufstrebender Lage von Strasshof. Offener Wohn-Essbereich, Fußbodenheizung, Photovoltaik vorbereitet und pflegeleichter Garten.",
+    merkmale:["Neubau","Niedrigenergie","Fußbodenheizung","PV-ready","Garten","Doppelcarport"] },
+
+  { id:"8027", typ:"wohnung", angebot:"kauf", titel:"Sonnige 3-Zimmer-Eigentumswohnung",
+    ort:"Gänserndorf", preis:219000, flaeche:72, zimmer:3, status:"neu", musterobjekt:true,
+    bilder:["apartment_2","interior_living_2"],
+    beschreibung:"Helle Eigentumswohnung mit Loggia in zentraler, aber ruhiger Lage von Gänserndorf. Ideal geschnitten, mit Kellerabteil und Tiefgaragenplatz. Nahe Bahnhof und Nahversorgung.",
+    merkmale:["Loggia","Tiefgarage","Kellerabteil","Nahe Bahnhof","Erstbezug saniert"] },
+
+  { id:"8034", typ:"grundstueck", angebot:"kauf", titel:"Baugrundstück, voll aufgeschlossen",
+    ort:"Deutsch-Wagram", preis:189000, flaeche:620, zimmer:null, status:"verfuegbar", musterobjekt:true,
+    bilder:["field_1","vineyard_1"],
+    beschreibung:"Ebenes, voll aufgeschlossenes Baugrundstück mit 620 m² in guter Wohnlage von Deutsch-Wagram. Bauklasse I, offene Bauweise. Alle Anschlüsse an der Grundgrenze.",
+    merkmale:["620 m²","Voll aufgeschlossen","Bauklasse I","Ebene Lage","Offene Bauweise"] },
+
+  { id:"8041", typ:"haus", angebot:"kauf", titel:"Landhaus mit eigenem Weingarten",
+    ort:"Gaweinstal", preis:345000, flaeche:180, zimmer:6, status:"verfuegbar", musterobjekt:true,
+    bilder:["house_country","vineyard_1","field_1"],
+    beschreibung:"Charmantes Landhaus im Herzen des Weinviertels mit eigenem kleinen Weingarten und Presshaus. Viel Charakter, großzügiger Innenhof und Nebengebäude — ein Rückzugsort mit Geschichte.",
+    merkmale:["Eigener Weingarten","Presshaus","Innenhof","Nebengebäude","180 m²","Weinviertel"] },
+
+  { id:"8056", typ:"wohnung", angebot:"miete", titel:"3-Zimmer-Mietwohnung mit Balkon",
+    ort:"Wolkersdorf", preis:890, preisEinheit:"Monat", flaeche:68, zimmer:3, status:"neu", musterobjekt:true,
+    bilder:["apartment_1","interior_living_1"],
+    beschreibung:"Gepflegte Mietwohnung mit Südbalkon in Wolkersdorf. 68 m², moderne Küche, Lift im Haus. Warmmiete inkl. Betriebskosten, verfügbar ab sofort.",
+    merkmale:["Südbalkon","Lift","Moderne Küche","Ab sofort","Nahversorgung"] },
+
+  { id:"8063", typ:"gewerbe", angebot:"kauf", titel:"Lager- & Gewerbehalle mit Freifläche",
+    ort:"Marchegg", preis:580000, flaeche:850, zimmer:null, status:"verfuegbar", musterobjekt:true,
+    bilder:["hall_warehouse","office_bldg"],
+    beschreibung:"Vielseitig nutzbare Gewerbehalle mit 850 m² Hallenfläche, Bürotrakt und befestigter Freifläche. LKW-tauglicher Zufahrt, Krananlage vorhanden. Ideal für Produktion oder Logistik.",
+    merkmale:["850 m² Halle","Bürotrakt","Freifläche","Krananlage","LKW-Zufahrt"] },
+
+  { id:"8079", typ:"haus", angebot:"kauf", titel:"Altes Winzerhaus — Sanierungsobjekt",
+    ort:"Mistelbach", preis:129000, flaeche:160, zimmer:5, status:"verkauft", musterobjekt:true,
+    bilder:["house_modern_2","interior_living_2"],
+    beschreibung:"Ursprüngliches Winzerhaus mit viel Substanz und Charme, ideal für Liebhaber alter Baukultur. Großes Potenzial zur Sanierung nach eigenen Vorstellungen. Hof und Kellergewölbe.",
+    merkmale:["Viel Substanz","Kellergewölbe","Innenhof","Sanierungsobjekt","Streckhof"] },
+];
+
+/* ============================================================
+   Leistungen (aus der bestehenden Seite übernommen)
+   ============================================================ */
+const LEISTUNGEN = [
+  { t:"Konzessionierter Makler", d:"Vermittlung mit fachlicher Kompetenz und gültiger Gewerbeberechtigung — rechtssicher von Anfang an.",
+    p:"M3 10.5 12 3l9 7.5 M5 9.5V21h14V9.5 M9.5 21v-6h5v6" },
+  { t:"Unverbindliche Beratung", d:"In allen Immobilienfragen — wir nehmen uns Zeit und legen Ihre Aktivitäten langfristig an.",
+    p:"M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2Z" },
+  { t:"Wertermittlung", d:"Realistische Einschätzung von Objekten und fundierte Grundlagenermittlung für Ihre Entscheidung.",
+    p:"M3 3v18h18 M7 15l4-4 3 3 5-6" },
+  { t:"Vermittlung aller Objekte", d:"Grundstücke, Häuser, Wohnungen und Gewerbeobjekte aller Art — im In- und Ausland.",
+    p:"M3 21h18 M5 21V8l7-5 7 5v13 M10 21v-6h4v6" },
+  { t:"Vertragsabwicklung", d:"Saubere Abwicklung gemeinsam mit Notaren und Rechtsanwälten — Schritt für Schritt bis zur Unterschrift.",
+    p:"M8 4h8a1 1 0 0 1 1 1v15l-5-3-5 3V5a1 1 0 0 1 1-1Z" },
+  { t:"Spreng- & Werkmeister", d:"Fachkompetenz für das Baugewerbe — ein Vorteil bei Abbruch, Umbau und baulicher Einschätzung.",
+    p:"M14 3l7 7-4 4-7-7Z M10 10l-7 7 1 4 4 1 7-7" },
+  { t:"Hypothekar-Finanzierung", d:"Wir begleiten Sie bei Finanzierungsfragen und zeigen Ihnen den passenden Weg zu Ihrer Immobilie.",
+    p:"M3 10h18 M5 10V6l7-3 7 3v4 M6 10v8 M18 10v8 M3 21h18" },
+];
+
+/* ============================================================
+   Hilfsfunktionen
+   ============================================================ */
+const TYP_LABEL = { haus:"Haus", wohnung:"Wohnung", grundstueck:"Grundstück", gewerbe:"Gewerbe", ausland:"Ausland" };
+const STATUS_LABEL = { neu:"Neu im Angebot", verfuegbar:"Verfügbar", verkauft:"Verkauft" };
+
+function preisText(p){
+  if(p.preisText) return p.preisText;
+  if(p.preis === 0) return "auf Anfrage";
+  const n = new Intl.NumberFormat("de-AT").format(p.preis);
+  if(p.angebot === "miete"){
+    const einheit = p.preisEinheit === "m²/Monat" ? " / m²·Monat" : " / Monat";
+    return "€ " + n + einheit;
+  }
+  if(p.preisEinheit === "m²/Monat") return "€ " + n + " / m²·Monat";
+  return "€ " + n;
+}
+function flaecheText(p){ return p.flaeche ? new Intl.NumberFormat("de-AT").format(p.flaeche) + " m²" : "—"; }
+
+/* ============================================================
+   Filter-Zustand + Rendering
+   ============================================================ */
+const state = { text:"", typ:"", angebot:"", preis:"", flaeche:"", status:"", sort:"neueste" };
+
+function matches(p){
+  if(state.text){
+    const q = state.text.toLowerCase();
+    const hay = (p.titel + " " + p.ort + " " + p.id + " " + TYP_LABEL[p.typ]).toLowerCase();
+    if(!hay.includes(q)) return false;
+  }
+  if(state.typ && p.typ !== state.typ) return false;
+  if(state.angebot && p.angebot !== state.angebot) return false;
+  if(state.status && p.status !== state.status) return false;
+  if(state.preis && p.preis > 0){
+    if(p.angebot === "kauf" && p.preis > +state.preis) return false;
+  }
+  if(state.flaeche && (p.flaeche || 0) < +state.flaeche) return false;
+  return true;
+}
+
+function sortList(list){
+  const s = state.sort;
+  const arr = list.slice();
+  if(s === "preis-auf") arr.sort((a,b)=> (a.preis||0) - (b.preis||0));
+  else if(s === "preis-ab") arr.sort((a,b)=> (b.preis||0) - (a.preis||0));
+  else if(s === "flaeche-ab") arr.sort((a,b)=> (b.flaeche||0) - (a.flaeche||0));
+  else { // neueste: neu > verfuegbar > verkauft, dann Muster ans Ende
+    const rank = { neu:0, verfuegbar:1, verkauft:2 };
+    arr.sort((a,b)=> (rank[a.status]-rank[b.status]) || (a.musterobjekt - b.musterobjekt));
+  }
+  return arr;
+}
+
+function cardHTML(p){
+  const bg = img(p.bilder[0]);
+  const facts = [];
+  if(p.flaeche) facts.push(`<span><svg viewBox="0 0 24 24"><path d="M3 3h18v18H3z"/><path d="M3 9h18M9 3v18"/></svg>${flaecheText(p)}</span>`);
+  if(p.zimmer) facts.push(`<span><svg viewBox="0 0 24 24"><path d="M3 21V8l9-5 9 5v13"/><path d="M3 21h18"/></svg>${p.zimmer} Zi.</span>`);
+  facts.push(`<span><svg viewBox="0 0 24 24"><circle cx="12" cy="10" r="3"/><path d="M12 21s7-6 7-11a7 7 0 1 0-14 0c0 5 7 11 7 11Z"/></svg>${p.ort.split(" ·")[0]}</span>`);
+  return `
+    <button class="card" data-id="${p.id}" aria-label="${p.titel} in ${p.ort} ansehen">
+      <div class="ph" style="background-image:url('${bg}')">
+        <span class="status ${p.status}">${STATUS_LABEL[p.status]}</span>
+        ${p.musterobjekt ? '<span class="muster">Musterobjekt</span>' : ''}
+      </div>
+      <div class="body">
+        <div class="meta-top">
+          <span class="objnr">Obj. ${p.id}</span>
+          <span class="ort sans">${TYP_LABEL[p.typ]} · ${p.angebot === "miete" ? "Miete" : "Kauf"}</span>
+        </div>
+        <h3>${p.titel}</h3>
+        <div class="preis">${preisText(p)}</div>
+        <div class="facts">${facts.join("")}</div>
+      </div>
+    </button>`;
+}
+
+function render(){
+  const list = sortList(PROPERTIES.filter(matches));
+  const grid = document.getElementById("grid");
+  document.getElementById("resCount").textContent = list.length;
+  if(list.length === 0){
+    grid.innerHTML = `<div class="empty"><h3>Keine Objekte gefunden</h3><p>Zu dieser Auswahl haben wir derzeit kein passendes Objekt. Bitte lockern Sie die Filter.</p><button type="button" id="emptyReset">Filter zurücksetzen</button></div>`;
+    document.getElementById("emptyReset").onclick = resetFilters;
+    return;
+  }
+  grid.innerHTML = list.map(cardHTML).join("");
+  grid.querySelectorAll(".card").forEach(c => c.addEventListener("click", ()=> openModal(c.dataset.id)));
+}
+
+/* ============================================================
+   Objekt-Detail Modal
+   ============================================================ */
+let lastFocus = null;
+
+function openModal(id){
+  const p = PROPERTIES.find(x => x.id === id);
+  if(!p) return;
+  lastFocus = document.activeElement;
+  const gal = p.bilder.map(img);
+  const kpis = [];
+  if(p.flaeche) kpis.push(`<div><div class="k">Fläche</div><div class="v">${flaecheText(p)}</div></div>`);
+  if(p.zimmer) kpis.push(`<div><div class="k">Zimmer</div><div class="v">${p.zimmer}</div></div>`);
+  kpis.push(`<div><div class="k">Objektart</div><div class="v" style="font-size:17px">${TYP_LABEL[p.typ]}</div></div>`);
+  kpis.push(`<div><div class="k">Angebot</div><div class="v" style="font-size:17px">${p.angebot === "miete" ? "Miete" : "Kauf"}</div></div>`);
+  kpis.push(`<div><div class="k">Status</div><div class="v" style="font-size:17px">${STATUS_LABEL[p.status]}</div></div>`);
+
+  const betreff = encodeURIComponent(`Anfrage zu Objekt ${p.id} — ${p.titel} (${p.ort})`);
+  const body = encodeURIComponent(`Sehr geehrtes Team von Gahr Immobilien,\n\nich interessiere mich für das Objekt ${p.id} „${p.titel}" in ${p.ort}.\nBitte kontaktieren Sie mich.\n\nMit freundlichen Grüßen\n`);
+
+  document.getElementById("modal").innerHTML = `
+    <div class="gallery">
+      <div class="main" id="galMain" style="background-image:url('${gal[0]}')"></div>
+      <button class="close" id="modalClose" aria-label="Schließen">&times;</button>
+    </div>
+    ${gal.length > 1 ? `<div class="thumbs" id="galThumbs">${gal.map((g,i)=>`<button style="background-image:url('${g}')" data-i="${i}" aria-current="${i===0}" aria-label="Bild ${i+1}"></button>`).join("")}</div>` : ""}
+    <div class="detail">
+      <div class="ort"><span class="objnr">Obj. ${p.id}</span><span>${TYP_LABEL[p.typ]} · ${p.angebot === "miete" ? "zur Miete" : "zum Kauf"}</span>${p.musterobjekt ? '<span style="color:#A6823B">· Musterobjekt</span>' : ''}</div>
+      <div class="dhead">
+        <h2 id="modalTitle">${p.titel}</h2>
+        <div class="dpreis">${preisText(p)}<small>${p.ort}</small></div>
+      </div>
+      <div class="kpis">${kpis.join("")}</div>
+      <p class="desc">${p.beschreibung}</p>
+      <div class="merkmale">${p.merkmale.map(m=>`<span>${m}</span>`).join("")}</div>
+      <div class="dcta">
+        <a class="btn-primary" href="mailto:office@gahr-immobilien.at?subject=${betreff}&body=${body}">Dieses Objekt anfragen</a>
+        <a class="btn-ghost" href="tel:+43228720050">☎ 02287 / 200 50</a>
+      </div>
+      ${p.musterobjekt ? '<p class="muster-note">Hinweis: Dieses Objekt ist ein Musterobjekt mit Beispieldaten zu Demonstrationszwecken.</p>' : ''}
+    </div>`;
+
+  // Galerie-Thumbnails
+  const thumbs = document.getElementById("galThumbs");
+  if(thumbs){
+    thumbs.querySelectorAll("button").forEach(b => b.addEventListener("click", ()=>{
+      document.getElementById("galMain").style.backgroundImage = `url('${gal[+b.dataset.i]}')`;
+      thumbs.querySelectorAll("button").forEach(x=>x.setAttribute("aria-current","false"));
+      b.setAttribute("aria-current","true");
+    }));
+  }
+  document.getElementById("modalClose").addEventListener("click", closeModal);
+  const ov = document.getElementById("overlay");
+  ov.classList.add("open");
+  document.body.style.overflow = "hidden";
+  document.getElementById("modalClose").focus();
+}
+
+function closeModal(){
+  document.getElementById("overlay").classList.remove("open");
+  document.body.style.overflow = "";
+  if(lastFocus) lastFocus.focus();
+}
+document.getElementById("overlay").addEventListener("click", e=>{ if(e.target.id === "overlay") closeModal(); });
+document.addEventListener("keydown", e=>{ if(e.key === "Escape") closeModal(); });
+
+/* ============================================================
+   Filter-Verdrahtung
+   ============================================================ */
+function bindChips(groupId, key){
+  const grp = document.getElementById(groupId);
+  grp.querySelectorAll(".chip").forEach(chip => chip.addEventListener("click", ()=>{
+    grp.querySelectorAll(".chip").forEach(c=>c.setAttribute("aria-pressed","false"));
+    chip.setAttribute("aria-pressed","true");
+    state[key] = chip.dataset[key];
+    render();
+  }));
+}
+bindChips("f-typ","typ");
+bindChips("f-angebot","angebot");
+
+const bind = (id, key) => {
+  const el = document.getElementById(id);
+  el.addEventListener("input", ()=>{ state[key] = el.value; render(); });
+};
+bind("f-text","text");
+bind("f-preis","preis");
+bind("f-flaeche","flaeche");
+bind("f-status","status");
+bind("f-sort","sort");
+
+function resetFilters(){
+  Object.assign(state, { text:"", typ:"", angebot:"", preis:"", flaeche:"", status:"", sort:"neueste" });
+  document.getElementById("f-text").value = "";
+  document.getElementById("f-preis").value = "";
+  document.getElementById("f-flaeche").value = "";
+  document.getElementById("f-status").value = "";
+  document.getElementById("f-sort").value = "neueste";
+  document.querySelectorAll("#f-typ .chip, #f-angebot .chip").forEach(c=>c.setAttribute("aria-pressed", c.dataset.typ === "" || c.dataset.angebot === "" ? "true" : "false"));
+  render();
+}
+document.getElementById("f-reset").addEventListener("click", resetFilters);
+
+/* Hero-Schnellsuche spiegelt in die Filter */
+document.getElementById("heroSearch").addEventListener("submit", e=>{
+  e.preventDefault();
+  const ort = document.getElementById("hs-ort").value;
+  const typ = document.getElementById("hs-typ").value;
+  const angebot = document.getElementById("hs-angebot").value;
+  state.text = ort; document.getElementById("f-text").value = ort;
+  state.typ = typ;
+  state.angebot = angebot;
+  document.querySelectorAll("#f-typ .chip").forEach(c=>c.setAttribute("aria-pressed", c.dataset.typ === typ ? "true" : "false"));
+  document.querySelectorAll("#f-angebot .chip").forEach(c=>c.setAttribute("aria-pressed", c.dataset.angebot === angebot ? "true" : "false"));
+  render();
+  document.getElementById("objekte").scrollIntoView({ behavior: "smooth" });
+});
+
+/* ============================================================
+   Leistungen rendern
+   ============================================================ */
+document.getElementById("leistGrid").innerHTML = LEISTUNGEN.map(l => `
+  <div class="leist">
+    <svg class="ic" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="${l.p}"/></svg>
+    <h3>${l.t}</h3>
+    <p>${l.d}</p>
+  </div>`).join("") + `
+  <div class="leist cta">
+    <h3>Ihre Immobilie wartet.</h3>
+    <p>Lassen Sie uns unverbindlich über Ihr Vorhaben sprechen.</p>
+    <a href="#kontakt">Kontakt aufnehmen</a>
+  </div>`;
+
+/* ============================================================
+   Kontaktformular → vorformulierte mailto (serverlos)
+   ============================================================ */
+document.getElementById("kontaktForm").addEventListener("submit", e=>{
+  e.preventDefault();
+  const name = document.getElementById("k-name").value || "—";
+  const tel  = document.getElementById("k-tel").value || "—";
+  const mail = document.getElementById("k-mail").value || "—";
+  const betr = document.getElementById("k-betreff").value;
+  const text = document.getElementById("k-text").value || "";
+  const subject = encodeURIComponent(betr + " — Anfrage über die Website");
+  const body = encodeURIComponent(
+    `Name: ${name}\nTelefon: ${tel}\nE-Mail: ${mail}\n\n${text}\n`
+  );
+  window.location.href = `mailto:office@gahr-immobilien.at?subject=${subject}&body=${body}`;
+});
+
+/* ============================================================
+   Hero-Bild setzen, Zähler, Burger, Init
+   ============================================================ */
+document.getElementById("heroPhoto").style.backgroundImage = `url('${img("hero")}')`;
+document.getElementById("trustCount").textContent = PROPERTIES.length;
+
+const burger = document.getElementById("burger");
+burger.addEventListener("click", ()=>{
+  const nav = document.getElementById("nav");
+  const open = nav.classList.toggle("show");
+  burger.setAttribute("aria-expanded", open);
+});
+document.querySelectorAll("#nav a").forEach(a => a.addEventListener("click", ()=>{
+  document.getElementById("nav").classList.remove("show");
+  burger.setAttribute("aria-expanded","false");
+}));
+
+render();
+requestAnimationFrame(()=> document.body.classList.add("is-ready"));
+</script>
+</body>
+</html>
